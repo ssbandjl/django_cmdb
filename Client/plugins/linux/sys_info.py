@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding:utf-8 -*-
 
-import subprocess #https://www.cnblogs.com/sunailong/p/5162748.htm
+import subprocess #https://www.cnblogs.com/sunailong/p/5162748.htm 使用subprocess.Popen()方法执行Linux的命令，然后获取返回值，并以规定的格式打包到data字典里。可以在Linux下配置cronb或其它定时服务，设置定期的数据收集、报告任务。
 
 
 def collect():
