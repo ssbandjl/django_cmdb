@@ -13,7 +13,7 @@ Params = {
 
 # 日志文件配置
 
-PATH = os.path.join(os.path.dirname(os.getcwd()), 'log', 'cmdb.log')
+PATH = os.path.join(os.path.dirname(os.getcwd()), 'log', 'cmdb.log') #https://www.cnblogs.com/wuxie1989/p/5623435.html
 
 
 # 更多配置，请都集中在此文件中
