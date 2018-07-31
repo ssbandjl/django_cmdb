@@ -35,7 +35,7 @@ def collect():
     data.update(get_cpu_info())
     data.update(get_ram_info())
     data.update(get_nic_info())
-    data.update(get_disk_info())
+    #data.update(get_disk_info()) 屏蔽阿里云服务器查看磁盘信息
     print (data)
     return data
 
