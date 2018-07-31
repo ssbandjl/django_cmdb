@@ -226,9 +226,9 @@ def get_disk_info():
     :return:
     """
     raw_data = subprocess.Popen("sudo hdparm -i /dev/sda 2>/dev/null| grep Model", stdout=subprocess.PIPE, shell=True)
+    raw_data = raw_data.stdout.read().decode()
     print (raw_data)
     if len(raw_data) > 0: #如果磁盘信息不为空.
-        raw_data = raw_data.stdout.read().decode()
         data_list = raw_data.split(",")
         model = data_list[0].split("=")[1]
     else:
