@@ -69,12 +69,12 @@ class ArgvHandler(object):
             print("返回结果：%s" % message)
         except Exception as e:
             message = "发送失败"
-            print("\033[31;1m发送失败，%s\033[0m" % e)
+            print("\033[31;1m发送失败，%s\033[0m" % e) #红色
         # 记录发送日志
         with open(settings.PATH, 'ab') as f:
             string = '发送时间：%s \t 服务器地址：%s \t 返回结果：%s \n' % (time.strftime('%Y-%m-%d %H:%M:%S'), url, message)
             f.write(string.encode())
-            print("日志记录成功！")
+            print("日志记录成功！"+PATH)
 
 
 
