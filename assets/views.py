@@ -49,7 +49,7 @@ def detail(request, asset_id):
 def report(request):
     """
     通过csrf_exempt装饰器，跳过Django的csrf安全机制，让post的数据能被接收，但这又会带来新的安全问题。
-    可以在客户端，使用自定义的认证token，进行身份验证。这部分工作，请根据实际情况，自己进行。
+    可以在客户端，可以通过增加用户名、密码，或者md5验证或者自定义安全令牌的方式解决,使用自定义的认证token，进行身份验证。这部分工作，请根据实际情况，自己进行。
     :param request:
     :return:
     """

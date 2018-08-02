@@ -1,3 +1,4 @@
+# -*- coding:utf-8 -*-
 """cmdb URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
@@ -19,5 +20,5 @@ from django.contrib import admin
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^assets/', include('assets.urls')),
+    url(r'^assets/', include('assets.urls')), #二级路由，将所有assets相关的数据都转发到assets.urls中
 ]

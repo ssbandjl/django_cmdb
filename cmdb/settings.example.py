@@ -25,7 +25,7 @@ SECRET_KEY = '+$*n1_pkko%zaz5!lm8lg208@uj^qy3mcsuy+*ov%ikpvd5$rf'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ["*"] #Allow common network access
 
 
 # Application definition
