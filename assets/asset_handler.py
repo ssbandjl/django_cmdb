@@ -52,7 +52,7 @@ class NewAsset(object):
 
         }
         models.NewAssetApprovalZone.objects.update_or_create(sn=self.data['sn'], defaults=defaults)
-
+        #update_or_create()方法的机制：如果数据库内没有该数据，那么新增，如果有，则更新，这就大大减少了我们的代码量，不用写两个方法。该方法的参数必须为一些用于查询的指定字段（这里是sn），以及需要新增或者更新的defaults字典。而其返回值，则是一个查询对象和是否新建对象布尔值的二元元组
         return '资产已经加入或更新待审批区！'
 
 

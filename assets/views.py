@@ -46,7 +46,7 @@ def detail(request, asset_id):
 
 
 @csrf_exempt
-def report(request):
+def report(request): #接收客户端发送的数据接口
     """
     通过csrf_exempt装饰器，跳过Django的csrf安全机制，让post的数据能被接收，但这又会带来新的安全问题。
     可以在客户端，可以通过增加用户名、密码，或者md5验证或者自定义安全令牌的方式解决,使用自定义的认证token，进行身份验证。这部分工作，请根据实际情况，自己进行。
@@ -56,10 +56,11 @@ def report(request):
     if request.method == "POST":
         asset_data = request.POST.get('asset_data')
         data = json.loads(asset_data)
+        print(data)
         # 各种数据检查，请自行添加和完善！
         if not data:
             return HttpResponse("没有数据！")
-        if not issubclass(dict, type(data)):
+        if not issubclass(dict, type(data)): #issubclass() 方法用于判断参数 class 是否是类型参数 classinfo 的子类
             return HttpResponse("数据必须为字典格式！")
         # 是否携带了关键的sn号
         sn = data.get('sn', None)
