@@ -20,7 +20,7 @@ from django.contrib import admin
 from . import views
 
 urlpatterns = [
-    url(r'^', views.index),
+    url(r'^$', views.index),
     url(r'^admin/', admin.site.urls),
     url(r'^assets/', include('assets.urls')), #二级路由，将所有assets相关的数据都转发到assets.urls中
 ]
