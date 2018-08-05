@@ -31,7 +31,7 @@ ALLOWED_HOSTS = ["*"] #Allow common network access
 # Application definition
 
 INSTALLED_APPS = [
-    'django.contrib.admin',
+    'django.contrib.admin', #admin/sxxxxb2018
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
