@@ -6,7 +6,7 @@ from . import models
 
 def log(log_type, msg=None, asset=None, new_asset=None, request=None):
     """
-    记录日志
+    记录日志,log()函数很简单，根据日志类型的不同，保存日志需要的各种信息，比如日志名称、关联的资产对象、日志详细内容和审批人员等等。所有的日志都被保存在数据库中，可以在admin中查看
     """
     event = models.EventLog()
     if log_type == "upline":
@@ -60,18 +60,18 @@ class ApproveAsset:
     """
     审批资产并上线。
     """
-    def __init__(self, request, asset_id):
+    def __init__(self, request, asset_id): #初始化方法接收reqeust和待审批资产的id
         self.request = request
         self.new_asset = models.NewAssetApprovalZone.objects.get(id=asset_id)
-        self.data = json.loads(self.new_asset.data)
+        self.data = json.loads(self.new_asset.data) #分别提前获取资产对象和所有数据data
 
-    def asset_upline(self):
+    def asset_upline(self): #asset_upline()是入口方法，通过反射，获取一个类似_server_upline的方法。之所以这么做，是为后面的网络设别、安全设备、存储设备等更多类型资产的审批留下扩展接口。本教程里只实现了服务器类型资产的审批方法，更多的请自行完善，过程基本类似。
         # 为以后的其它类型资产扩展留下接口
         func = getattr(self, "_%s_upline" % self.new_asset.asset_type)
         ret = func()
         return ret and True
 
-    def _server_upline(self):
+    def _server_upline(self): #_server_upline()是服务器类型资产上线的核心方法
         # 在实际的生产环境中，下面的操作应该是原子性的整体事务，任何一步出现异常，所有操作都要回滚。
         asset = self._create_asset()  # 创建一条资产并返回资产对象。注意要和待审批区的资产区分开。
         try:
