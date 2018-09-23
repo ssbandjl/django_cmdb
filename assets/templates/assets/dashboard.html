@@ -45,7 +45,7 @@
                 </button>
               </div>
             </div>
-            <!-- /.box-header -->
+            <!-- /.box-header asset.views.dashboard返回local变量 -->
             <div class="box-body">
               <div class="row">
                 <div class="col-xs-6 col-md-2 col-md-offset-1 text-center">
@@ -139,6 +139,7 @@
 {% endblock %}
 
 {% block script %}
+    <!-- 引入 ECharts 文件 -->
     <script src="{% static 'plugins/echarts.js' %}"></script>
     <!-- AdminLTE App -->
     <!-- SlimScroll 1.3.0 -->
@@ -230,13 +231,15 @@
             title: {
                 text: '数量'
             },
-            tooltip: {},
-            legend: { data:['']
+            tooltip: {}, //提示框，鼠标悬浮交互时的信息提示
+            legend: { data:['数量'] //legend图例
             },
+            //直角坐标系中横轴数组，数组中每一项代表一条横轴坐标轴，仅有一条时可省略数值,横轴通常为类目型，但条形图时则横轴为数值型，散点图时则横纵均为数值型
             xAxis: {
                 data: ["在线", "下线","故障","备用","未知"] },
+
             yAxis: {},
-            series:
+            series: //sereis的数据: 用于设置图表数据之用。series是一个对象嵌套的结构；对象内包含对象
                 [{
                 name: '数量',
                 type: 'bar',
