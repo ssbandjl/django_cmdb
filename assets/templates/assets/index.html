@@ -16,7 +16,7 @@
 
 {% block content %}
 
-    <!-- Content Header (Page header) -->
+    <!-- Content Header (Page header) <section> 标签定义文档中的节（section、区段）。比如章节、页眉、页脚或文档中的其他部分,<ol> 标签定义有序列表-->
     <section class="content-header">
       <h1>
         资产总表
@@ -58,7 +58,9 @@
 
                 {% for asset in assets %}
                 <tr>
+                    <!--在 {% for %} 循环内部，可以访问一个名为 forloop 的模板变量。这个变量有几个属性，通过它们可以获知循环进程的一些信息：• forloop.counter 的值是一个整数，表示循环的次数。这个属性的值从 1 开始-->
                   <td>{{ forloop.counter }}</td>
+                    <!--以不同的颜色样式显示不同的资产类型-->
                   {% if asset.asset_type == 'server' %}
                       <td class="text-green text-bold">{{ asset.get_asset_type_display }}</td>
                       <td>{{ asset.server.get_sub_asset_type_display }}</td>
@@ -73,6 +75,7 @@
                       <td>{{ asset.securitydevice.get_sub_asset_type_display }}</td>
                   {% endif %}
                     {% if asset.asset_type == 'server' %}
+                    <!--http://47.106.101.58/assets/detail/1/ 用资产名引入超链接-->
                         <td><a href="{% url 'assets:detail' asset.id %}">{{ asset.name }}</a></td>
                     {% else %}
                         <td>{{ asset.name }}</td>
@@ -90,6 +93,7 @@
                     {% elif asset.status == 4 %}
                       <td><label class="label label-info">{{ asset.get_status_display }}</label></td>
                     {% endif %}
+                    <!--机房/更新日期/标签-->
                   <td>{{ asset.idc|default:"-" }}</td>
                   <td>{{ asset.m_time|date:"Y/m/d [H:m:s]" }}</td>
                   <td>
@@ -144,7 +148,7 @@
     <script src="{% static 'dist/js/app.min.js' %}"></script>
     <!-- AdminLTE for demo purposes -->
     <script src="{% static 'dist/js/demo.js' %}"></script>
-    <!-- page script -->
+    <!-- page script:分页/显示条目/排序等 -->
     <script>
       $(function () {
         $('#assets_table').DataTable({
