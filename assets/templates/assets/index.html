@@ -58,7 +58,7 @@
 
                 {% for asset in assets %}
                 <tr>
-                    <!--在 {% for %} 循环内部，可以访问一个名为 forloop 的模板变量。这个变量有几个属性，通过它们可以获知循环进程的一些信息：• forloop.counter 的值是一个整数，表示循环的次数。这个属性的值从 1 开始-->
+                    <!--在 for循环内部，可以访问一个名为 forloop 的模板变量。这个变量有几个属性，通过它们可以获知循环进程的一些信息：• forloop.counter 的值是一个整数，表示循环的次数。这个属性的值从 1 开始-->
                   <td>{{ forloop.counter }}</td>
                     <!--以不同的颜色样式显示不同的资产类型-->
                   {% if asset.asset_type == 'server' %}
