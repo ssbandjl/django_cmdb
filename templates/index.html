@@ -1,3 +1,4 @@
+{% load staticfiles %}
 <!DOCTYPE html>
 <html>
 
@@ -19,10 +20,10 @@
   </div>
 
 <p>XB-Amily</p>
-<img id="myImg_XB-Amily" src="HomePage.jpg" alt="The Scream" width="1140" height="500">
+<img id="myImg_XB-Amily" src="{% static 'bootstrap/xb/HomePage.jpg" alt="The Scream" width="1140" height="500">
 <p>XB With Amily 2016/10</p>
-<video id="video" class="wrap" width ="1140" height ="" controls="" preload="none" poster="xb.png" type="video/mp4"> <br />
-<source src="News20111002.mp4"> <br />
+<video id="video" class="wrap" width ="1140" height ="" controls="" preload="none" poster="{% static 'bootstrap/xb/xb.png" type="video/mp4"> <br />
+<source src="{% static 'bootstrap/xb/News20111002.mp4"> <br />
 </video> <br />
 <br>  </p>
 
