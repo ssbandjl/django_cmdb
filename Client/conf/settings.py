@@ -6,7 +6,7 @@ import os
 # 远端服务器配置
 Params = {
     "server": "47.106.101.58",
-    "port": 80,
+    "port": 8001,
     'url': '/assets/report/',
     'request_timeout': 30,
 }
