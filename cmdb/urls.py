@@ -17,10 +17,12 @@ Including another URLconf
 from django.conf.urls import url
 from django.conf.urls import include
 from django.contrib import admin
-from . import views
+from assets import views
+# from . import views
 
 urlpatterns = [
-    url(r'^$', views.index),
+    # url(r'^$', views.index),
+    url(r'^$', views.dashboard, name='dashboard'),
     url(r'^admin/', admin.site.urls),
     url(r'^assets/', include('assets.urls')), #二级路由，将所有assets相关的数据都转发到assets.urls中
 ]
